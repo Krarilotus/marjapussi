@@ -1,6 +1,6 @@
 from marjapussi.game import MarjaPussi
 from marjapussi.policy import Policy, RandomPolicy
-from marjapussi.utils import Card, CARDS, all_color_cards, all_value_cards, cards_str, high_card, higher_cards, sorted_cards
+from marjapussi.utils import Card, CARDS, all_color_cards, all_value_cards, high_card, higher_cards, sorted_cards
 
 from tqdm import trange
 import logging

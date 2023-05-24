@@ -157,8 +157,7 @@ class MarjaPussi():
             actions.append(f"{self.playing_player.partner.number},PASS,{str(card)}")
         return actions
 
-    def act_pass(self, player, card_str):
-        card = utils.str_to_card(card_str)
+    def act_pass(self, player, card: Card):
         if len(self.passed_cards["forth"]) < 4:
             self.passed_cards["forth"].append(card)
         if len(self.passed_cards["forth"]) == 4:
@@ -178,8 +177,7 @@ class MarjaPussi():
             actions.append(f"{self.playing_player.number},PBCK,{str(card)}")
         return actions
 
-    def act_pbck(self, player, card_str):
-        card = utils.str_to_card(card_str)
+    def act_pbck(self, player, card: Card):
         if len(self.passed_cards["back"]) < 4:
             self.passed_cards["back"].append(card)
         if len(self.passed_cards["back"]) == 4:
@@ -215,8 +213,7 @@ class MarjaPussi():
                 utils.allowed_general(self.tricks[-1], self.player_at_turn.cards,
                                       sup_col=self.sup_col, first=(len(self.tricks[0]) != 4))]
 
-    def act_trck(self, player, card_str):
-        card = utils.str_to_card(card_str)
+    def act_trck(self, player, card: Card):
         self.logger.info(
             f"{self.players_dict[player].name} {MarjaPussi.INFO_MSG['plays'][self.language]} {str(card)}.")
         self.phase = 'TRCK'

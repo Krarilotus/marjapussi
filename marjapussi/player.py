@@ -1,4 +1,4 @@
-import marjapussi.utils as utils
+from marjapussi.utils import Card, sorted_cards
 
 
 class Player():
@@ -30,15 +30,15 @@ class Player():
         self.sup_calls.append(col)
         self.points_made += self.points[col]
 
-    def give_card(self, c: str) -> None:
+    def give_card(self, c: Card) -> None:
         """Gives the player an additional card."""
         self.cards.append(c)
         # ? sorting doesn't need to be here but is convenient
-        self.cards = utils.sorted_cards(self.cards)
+        self.cards = sorted_cards(self.cards)
 
     def take_card(self, c: str) -> None:
         self.cards = list(set(self.cards) - {c, })
-        self.cards = utils.sorted_cards(self.cards)
+        self.cards = sorted_cards(self.cards)
 
     def set_partner(self, partner) -> None:
         self.partner: Player = partner
